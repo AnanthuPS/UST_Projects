@@ -5,7 +5,7 @@ import os
 def main_menu():
     print("__________System Health Finder__________")
     print("1. Display available RAM")
-    print("2. Display Load avearge")
+    print("2. Display Load average")
     print("3. Display Hostname details")
     print("4. Display All process count")
     print("5. Display uptime")
@@ -28,7 +28,7 @@ def process_count():
     print(os.popen(cmd).read())
 
 def uptime():
-    print(os.popen('uptime').read())
+    print(os.popen('uptime -s').read())
 
 
 while True:

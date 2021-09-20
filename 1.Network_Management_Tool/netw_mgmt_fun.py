@@ -138,7 +138,7 @@ def add_arp_entry():
 
 def delete_arp_entry():
     ip = input("Enter an IP address : ")
-    cmd = f"sudo ip n del {ip} lladdr 24:94:93:1e:be:14 dev wlp4s0"
+    cmd = f"sudo ip n del {ip} dev wlp4s0"
     arp = os.popen(cmd).read()
     print(os.popen("ip n show").read())
 

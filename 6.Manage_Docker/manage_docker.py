@@ -56,7 +56,7 @@ while True:
         print(f"Disconnecting {container_image} from {network_name}")
         cmd =f"docker network disconnect {network_name} {container_image}"
         print(os.popen(cmd).read())
-        console.print("Disconnected network",style="bold blue")
+        print("Disconnected network",style="bold blue")
         print(f"Connecting {container_image} to  {network_name}")
         cmd1 = f"docker network connect {network_name} {container_image}"
         print(os.popen(cmd1).read())

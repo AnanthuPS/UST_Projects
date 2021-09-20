@@ -20,6 +20,7 @@ def scan_single_host():
 	print("Wait.......................")
 	try:
 		scan = nm.scan(hosts=ip_address,ports="1-100",arguments = "-v -sS -O -Pn")
+		print("@@@",scan)
 		for host in scan["scan"][ip_address]['tcp'].items():
 			print("Tcp Port => ",host[0])
 			print("State => ",host[1]['state'])
@@ -34,6 +35,7 @@ def scan_range():
 	print("Wait........................")
 	try:
 		scan = nm.scan(hosts=ip_address,arguments = "-sS -O -Pn")
+		print("@@@",scan)
 		for port in scan["scan"][ip_address]['tcp'].items():
 			print(f"TCP port : {port[0]}, {port[1]['state']} , {port[1]['name']}")
 	except:
@@ -56,7 +58,7 @@ def scan_network():
 	
 
 def agg_scan():
-	nm = nmap.PortScanner() #create object of nmap port scanner class
+	nm = nmap.PortScanner()
 	ip_address = input("\tEnter the IP address : ")
 	print("Wait........................")
 	try:
@@ -76,7 +78,10 @@ def arp_packets():
 	print("Wait........................")
 	try:
 		scan = nm.scan(hosts=ip_address,arguments = "-sS -O -PR")
-		print(scan)
+		for i in scan["scan"][ip_address]['osmatch']:
+			for j in i['osclass']:
+				print(f"cpe : {j['cpe']}")
+				print(f"osfamily : {j['osfamily']}")
 	except:
 		print("Use sudo")
 		

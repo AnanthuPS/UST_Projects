@@ -5,7 +5,6 @@ from scapy.all import *
 net_iface = sys.argv[1] #Taking interface name
 print(net_iface)
 
-#promisceous mode transfer the interface data packets to cpu to processs and you capture from there
 subprocess.call(["ifconfig",net_iface,"promisc"]) #creating another process to run command
 
 num_of_pkt = int(sys.argv[2])#Taking number of packets
