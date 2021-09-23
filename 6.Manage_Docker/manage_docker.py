@@ -19,7 +19,7 @@ while True:
 
     if ch == 1:
         # checking docker container status
-        cmd = 'docker container stats'
+        cmd = 'docker ps -a '
         os.system(cmd)
     
     elif ch == 2:
@@ -56,7 +56,7 @@ while True:
         print(f"Disconnecting {container_image} from {network_name}")
         cmd =f"docker network disconnect {network_name} {container_image}"
         print(os.popen(cmd).read())
-        print("Disconnected network",style="bold blue")
+        print("Disconnected network")
         print(f"Connecting {container_image} to  {network_name}")
         cmd1 = f"docker network connect {network_name} {container_image}"
         print(os.popen(cmd1).read())

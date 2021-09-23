@@ -21,6 +21,6 @@ print("\n")
 print("---------------PROCESS LIST TABLE---------------")
 cur.execute("select * from PROCESSLIST") 
 res2 = cur.fetchall()
-[console.print(f"USER ID -> {i[0]} | USER NAME -> {i[1]} | HOST NAME -> {i[2]} | DATABASE -> {i[3]} | COMMAND -> {i[4]} | TIME -> {i[5]} | STATE -> {i[6]} | INFO -> {i[7]}",style = 'bold blue') for i in res2 ]
+[print(f"USER ID -> {i[0]} | USER NAME -> {i[1]} | HOST NAME -> {i[2]} | DATABASE -> {i[3]} | COMMAND -> {i[4]} | TIME -> {i[5]} | STATE -> {i[6]} | INFO -> {i[7]}") for i in res2 ]
 
 db.close()
